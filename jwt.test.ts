@@ -22,9 +22,7 @@ describe('jwt test', () => {
     })
 
     test('sign + verify', () => {
-        const payload = {
-            "name": "sign and verify test",
-        }
+        const payload = { "name": "sign and verify test" }
         const secret = 'sign and verify';
         const token = sign(payload, secret);
 
