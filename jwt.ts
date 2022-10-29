@@ -1,10 +1,10 @@
 import { Buffer } from 'buffer';
 import crypto from "crypto";
 
-export function sign(data: Record<string, any>, secret: string): string {
+export function sign(payload: Record<string, any>, secret: string): string {
     const header = { alg: 'HS256', typ: "JWT" };
     const header64 = base64encode(JSON.stringify(header));
-    const payload64 = base64encode(JSON.stringify(data));
+    const payload64 = base64encode(JSON.stringify(payload));
     const signature = HS256(`${header64}.${payload64}`, secret);
 
     return `${header64}.${payload64}.${signature}`;
