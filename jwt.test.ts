@@ -14,11 +14,11 @@ describe('jwt test', () => {
     test('sign', () => {
         const tok = sign(payload, secret);
 
-        expect(tok === token);
+        expect(tok === token).toBeTruthy();
     })
 
     test('verify', () => {
-        expect(verify(token, secret));
+        expect(verify(token, secret)).toBeTruthy();
     })
 
     test('sign + verify', () => {
@@ -26,6 +26,6 @@ describe('jwt test', () => {
         const secret = 'sign and verify';
         const token = sign(payload, secret);
 
-        expect(verify(token, secret));
+        expect(verify(token, secret)).toBeTruthy();
     })
 })
